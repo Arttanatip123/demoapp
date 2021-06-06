@@ -24,6 +24,11 @@ dependencies:
   flutter:
     sdk: flutter
   provider: ^5.0.0
+  ## add injectable to your dependencies
+  injectable:
+  get_it:
+  dio: ^4.0.0
+  dio_cookie_manager: 2.0.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
