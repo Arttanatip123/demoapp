@@ -1,6 +1,10 @@
+import 'package:demoapp/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 class ComingConcert extends StatelessWidget {
+  HomeViewModel viewModel;
+  ComingConcert(this.viewModel);
+
   final List soon = [
     {
       "id": 1,

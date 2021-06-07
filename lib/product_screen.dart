@@ -1,6 +1,9 @@
+import 'package:demoapp/home.dart';
 import 'package:flutter/material.dart';
 
 class Product extends StatelessWidget {
+  Product(this.viewModel);
+  HomeViewModel viewModel;
 
   final List product = [
     {

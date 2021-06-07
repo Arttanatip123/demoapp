@@ -1,7 +1,12 @@
+import 'package:demoapp/home.dart';
 import 'package:flutter/material.dart';
 import 'package:overflow_view/overflow_view.dart';
 
 class CheckIn extends StatelessWidget {
+  HomeViewModel viewModel;
+  CheckIn(this.viewModel);
+
+
   List<Avatar> avatars = <Avatar>[
     Avatar('A', Colors.red),
     Avatar('B', Colors.red),

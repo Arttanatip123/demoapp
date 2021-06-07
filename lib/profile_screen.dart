@@ -67,7 +67,7 @@ class _ProfileState extends BaseStateProvider<Profile,HomeViewModel> {
                         child: CircleAvatar(
                           radius: 50.0,
                           //backgroundImage: AssetImage("images/shop.jpg"),
-                          backgroundImage: NetworkImage('${viewModel.storeDetail!.images!.logo!.url}'),
+                          backgroundImage: NetworkImage('${viewModel.storeDetail?.images?.logo?.url}'),
                         ),
                     ),
                     Expanded(
@@ -77,7 +77,7 @@ class _ProfileState extends BaseStateProvider<Profile,HomeViewModel> {
                             children: [
                               Expanded(
                                 child: Text(
-                                  '${viewModel.storeDetail!.name}',
+                                  '${viewModel.storeDetail?.name}',
                                   style: TextStyle(
                                     fontFamily: 'SukhumvitSet',
                                     color: Color(0xff08080a),
@@ -134,7 +134,7 @@ class _ProfileState extends BaseStateProvider<Profile,HomeViewModel> {
                                               color: Colors.white,
                                             ),
                                           ),
-                                          Text('${viewModel.storeDetail!.averageRating!.toDouble()}',
+                                          Text('${viewModel.storeDetail?.averageRating?.toDouble()}',
                                             style: TextStyle(
                                               fontFamily: 'SukhumvitSet',
                                               color: Color(0xffffffff),
@@ -150,7 +150,7 @@ class _ProfileState extends BaseStateProvider<Profile,HomeViewModel> {
                                       child: Container(
                                         child: Row(
                                           children: [
-                                            Text("${viewModel.storeDetail!.reviewTotal} รีวิว",
+                                            Text("${viewModel.storeDetail?.reviewTotal} รีวิว",
                                                 style: TextStyle(
                                                   fontFamily:
                                                   'SukhumvitSet',

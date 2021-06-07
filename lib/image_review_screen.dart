@@ -1,8 +1,13 @@
+import 'package:demoapp/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:overflow_view/overflow_view.dart';
 
 class ImageReview extends StatelessWidget {
+  HomeViewModel viewModel;
+  ImageReview(this.viewModel);
+
+
   List<ImagesReview> imageReview = <ImagesReview>[
     ImagesReview('images/concert1.jpg'),
     ImagesReview('images/concert2.jpg'),

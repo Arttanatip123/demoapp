@@ -1,6 +1,10 @@
 import 'package:demoapp/core/base_state_ful.dart';
 import 'package:demoapp/core/base_view_model.dart';
 import 'package:demoapp/core/base_widget.dart';
+import 'package:demoapp/model/get_checkin_detail_entity.dart';
+import 'package:demoapp/model/get_gallery_detail_entity.dart';
+import 'package:demoapp/model/get_promotion_detail_entity.dart';
+import 'package:demoapp/model/get_review_detail_entity.dart';
 import 'package:demoapp/model/get_store_detail_entity.dart';
 import 'package:demoapp/profile_screen.dart';
 import 'package:demoapp/tab_menu_screen.dart';
@@ -62,8 +66,13 @@ class _HomeState extends BaseStateProvider<Home, HomeViewModel> {
 }
 
 class HomeViewModel extends BaseViewModel{
-  GetStoreDetailData? storeDetail;
   String storeId;
+  GetStoreDetailData? storeDetail;
+  GetPromotionDetailEntityData? promotionDetail;
+  GetReviewDetailData? reviewDetail;
+  GetCheckinDetailData? checkinDetail;
+  GetGalleryDetailData? galleryDetail;
+
   
   HomeViewModel(this.storeId);
 
@@ -71,13 +80,42 @@ class HomeViewModel extends BaseViewModel{
   void postInit() {
     super.postInit();
     getStoreDetail();
+    getPromotionDetail();
+    getReviewDetail();
+    getCheckIn();
+    getGallery();
   }
   
-  void getStoreDetail(){
+  void getStoreDetail() {
     catchError(() async {
       storeDetail = await di.pageRepository.getStoreDetailById(storeId);
       notifyListeners();
       
+    });
+  }
+  void getPromotionDetail() {
+    catchError(() async {
+      promotionDetail = await di.pageRepository.getPromotionDetailById(storeId);
+      notifyListeners();
+    });
+  }
+  void getReviewDetail(){
+    catchError(()async {
+      reviewDetail = await di.pageRepository.getReviewById(storeId);
+      notifyListeners();
+    });
+  }
+
+  void getCheckIn(){
+    catchError(()async{
+      checkinDetail = await di.pageRepository.getCheckinById(storeId);
+      notifyListeners();
+    });
+  }
+
+  void getGallery(){
+    catchError(() async {
+      galleryDetail = await di.pageRepository.getGalleryById(storeId);
     });
   }
   
