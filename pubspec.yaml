@@ -33,6 +33,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  flutter_rating_bar: ^4.0.0
+  overflow_view: ^0.3.1
 
 dev_dependencies:
   flutter_test:
@@ -57,6 +59,17 @@ flutter:
     - images/restaurant.jpg
     - images/arrow.jpg
     - images/shop.jpg
+    - images/concert1.jpg
+    - images/concert2.jpg
+    - images/concert3.jpg
+    - images/concert4.jpg
+    - images/concert5.jpg
+    - images/shert_black.jpg
+    - images/shert_blue.jpg
+    - images/shert_red.jpg
+    - images/shert_white.jpg
+    - images/user/men.png
+    - images/user/women.png
   fonts:
     - family: SukhumvitSet
       fonts:
