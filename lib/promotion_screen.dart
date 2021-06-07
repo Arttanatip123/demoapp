@@ -1,3 +1,4 @@
+import 'package:demoapp/model/get_promotion_detail_entity.dart';
 import 'package:flutter/material.dart';
 
 class Promotion extends StatelessWidget {
@@ -29,7 +30,6 @@ class Promotion extends StatelessWidget {
         "price": 350,
       },
     ];
-
     return Container(
       child: Column(
         children: [
@@ -215,4 +215,10 @@ class Promotion extends StatelessWidget {
       ),
     );
   }
+}
+
+class PromotionViewModel {
+  GetPromotionDetailEntity? promotionDetail;
+
+
 }

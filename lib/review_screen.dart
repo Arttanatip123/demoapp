@@ -60,7 +60,7 @@ class Review extends StatelessWidget {
                     Expanded(
                       child: Container(
                         child: RatingBar.builder(
-                          initialRating: 3,
+                          initialRating: 3.5,
                           minRating: 1,
                           direction: Axis.horizontal,
                           allowHalfRating: true,

@@ -5,9 +5,8 @@ import 'package:injectable/injectable.dart';
 @singleton
 class CoreApi {
   final Dio _dio;
-
   CoreApi(this._dio) {
-    // _dio.options.baseUrl = EnvConfig.baseUrl;
+    _dio.options.baseUrl = 'https://alpha-api.theconcert.com';
     _dio.options.contentType = Headers.jsonContentType;
     _dio.options.connectTimeout = Duration(minutes: 3).inMilliseconds;
     _dio.options.receiveTimeout = Duration(minutes: 3).inMilliseconds;
