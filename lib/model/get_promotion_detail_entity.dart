@@ -2,17 +2,17 @@ import 'package:demoapp/generated/json/base/json_convert_content.dart';
 import 'package:demoapp/generated/json/base/json_field.dart';
 
 class GetPromotionDetailEntity with JsonConvert<GetPromotionDetailEntity> {
-	GetPromotionDetailEntityData? data;
-	GetPromotionDetailEntityBench? bench;
+	GetPromotionDetailData? data;
+	GetPromotionDetailBench? bench;
 }
 
-class GetPromotionDetailEntityData with JsonConvert<GetPromotionDetailEntityData> {
-	GetPromotionDetailEntityDataPagination? pagination;
-	List<GetPromotionDetailEntityDataRecord>? record;
+class GetPromotionDetailData with JsonConvert<GetPromotionDetailData> {
+	GetPromotionDetailDataPagination? pagination;
+	List<GetPromotionDetailDataRecord>? record;
 	bool? cache;
 }
 
-class GetPromotionDetailEntityDataPagination with JsonConvert<GetPromotionDetailEntityDataPagination> {
+class GetPromotionDetailDataPagination with JsonConvert<GetPromotionDetailDataPagination> {
 	@JSONField(name: "current_page")
 	int? currentPage;
 	@JSONField(name: "last_page")
@@ -21,7 +21,7 @@ class GetPromotionDetailEntityDataPagination with JsonConvert<GetPromotionDetail
 	int? total;
 }
 
-class GetPromotionDetailEntityDataRecord with JsonConvert<GetPromotionDetailEntityDataRecord> {
+class GetPromotionDetailDataRecord with JsonConvert<GetPromotionDetailDataRecord> {
 	int? id;
 	dynamic? slug;
 	String? type;
@@ -33,14 +33,14 @@ class GetPromotionDetailEntityDataRecord with JsonConvert<GetPromotionDetailEnti
 	@JSONField(name: "description_short")
 	String? descriptionShort;
 	String? description;
-	GetPromotionDetailEntityDataRecordStore? store;
-	GetPromotionDetailEntityDataRecordVenue? venue;
+	GetPromotionDetailDataRecordStore? store;
+	GetPromotionDetailDataRecordVenue? venue;
 	@JSONField(name: "show_time")
-	GetPromotionDetailEntityDataRecordShowTime? showTime;
-	GetPromotionDetailEntityDataRecordPrice? price;
+	GetPromotionDetailDataRecordShowTime? showTime;
+	GetPromotionDetailDataRecordPrice? price;
 	List<dynamic>? variants;
 	List<dynamic>? attributes;
-	List<GetPromotionDetailEntityDataRecordImages>? images;
+	List<GetPromotionDetailDataRecordImages>? images;
 	int? remain;
 	@JSONField(name: "ticket_count")
 	int? ticketCount;
@@ -65,7 +65,7 @@ class GetPromotionDetailEntityDataRecord with JsonConvert<GetPromotionDetailEnti
 	@JSONField(name: "ticket_shipping")
 	bool? ticketShipping;
 	@JSONField(name: "publish_status")
-	GetPromotionDetailEntityDataRecordPublishStatus? publishStatus;
+	GetPromotionDetailDataRecordPublishStatus? publishStatus;
 	@JSONField(name: "publish_at")
 	String? publishAt;
 	dynamic? remark;
@@ -83,32 +83,32 @@ class GetPromotionDetailEntityDataRecord with JsonConvert<GetPromotionDetailEnti
 	bool? verify;
 }
 
-class GetPromotionDetailEntityDataRecordStore with JsonConvert<GetPromotionDetailEntityDataRecordStore> {
+class GetPromotionDetailDataRecordStore with JsonConvert<GetPromotionDetailDataRecordStore> {
 	int? id;
 	String? name;
 	String? slug;
-	GetPromotionDetailEntityDataRecordStoreType? type;
-	GetPromotionDetailEntityDataRecordStoreSection? section;
+	GetPromotionDetailDataRecordStoreType? type;
+	GetPromotionDetailDataRecordStoreSection? section;
 	bool? status;
-	GetPromotionDetailEntityDataRecordStoreImage? image;
-	GetPromotionDetailEntityDataRecordStoreVenue? venue;
+	GetPromotionDetailDataRecordStoreImage? image;
+	GetPromotionDetailDataRecordStoreVenue? venue;
 }
 
-class GetPromotionDetailEntityDataRecordStoreType with JsonConvert<GetPromotionDetailEntityDataRecordStoreType> {
+class GetPromotionDetailDataRecordStoreType with JsonConvert<GetPromotionDetailDataRecordStoreType> {
 	int? id;
 	String? text;
 }
 
-class GetPromotionDetailEntityDataRecordStoreSection with JsonConvert<GetPromotionDetailEntityDataRecordStoreSection> {
+class GetPromotionDetailDataRecordStoreSection with JsonConvert<GetPromotionDetailDataRecordStoreSection> {
 	int? id;
 	String? text;
 }
 
-class GetPromotionDetailEntityDataRecordStoreImage with JsonConvert<GetPromotionDetailEntityDataRecordStoreImage> {
+class GetPromotionDetailDataRecordStoreImage with JsonConvert<GetPromotionDetailDataRecordStoreImage> {
 
 }
 
-class GetPromotionDetailEntityDataRecordStoreVenue with JsonConvert<GetPromotionDetailEntityDataRecordStoreVenue> {
+class GetPromotionDetailDataRecordStoreVenue with JsonConvert<GetPromotionDetailDataRecordStoreVenue> {
 	int? id;
 	double? lat;
 	double? long;
@@ -116,7 +116,7 @@ class GetPromotionDetailEntityDataRecordStoreVenue with JsonConvert<GetPromotion
 	String? address;
 }
 
-class GetPromotionDetailEntityDataRecordVenue with JsonConvert<GetPromotionDetailEntityDataRecordVenue> {
+class GetPromotionDetailDataRecordVenue with JsonConvert<GetPromotionDetailDataRecordVenue> {
 	int? id;
 	double? lat;
 	double? long;
@@ -124,7 +124,7 @@ class GetPromotionDetailEntityDataRecordVenue with JsonConvert<GetPromotionDetai
 	String? address;
 }
 
-class GetPromotionDetailEntityDataRecordShowTime with JsonConvert<GetPromotionDetailEntityDataRecordShowTime> {
+class GetPromotionDetailDataRecordShowTime with JsonConvert<GetPromotionDetailDataRecordShowTime> {
 	String? start;
 	String? end;
 	@JSONField(name: "text_full")
@@ -138,7 +138,7 @@ class GetPromotionDetailEntityDataRecordShowTime with JsonConvert<GetPromotionDe
 	String? statusText;
 }
 
-class GetPromotionDetailEntityDataRecordPrice with JsonConvert<GetPromotionDetailEntityDataRecordPrice> {
+class GetPromotionDetailDataRecordPrice with JsonConvert<GetPromotionDetailDataRecordPrice> {
 	@JSONField(name: "currency_code")
 	String? currencyCode;
 	@JSONField(name: "currency_symbol")
@@ -160,7 +160,7 @@ class GetPromotionDetailEntityDataRecordPrice with JsonConvert<GetPromotionDetai
 	bool? status;
 }
 
-class GetPromotionDetailEntityDataRecordImages with JsonConvert<GetPromotionDetailEntityDataRecordImages> {
+class GetPromotionDetailDataRecordImages with JsonConvert<GetPromotionDetailDataRecordImages> {
 	String? id;
 	@JSONField(name: "store_id")
 	int? storeId;
@@ -176,12 +176,12 @@ class GetPromotionDetailEntityDataRecordImages with JsonConvert<GetPromotionDeta
 	int? position;
 }
 
-class GetPromotionDetailEntityDataRecordPublishStatus with JsonConvert<GetPromotionDetailEntityDataRecordPublishStatus> {
+class GetPromotionDetailDataRecordPublishStatus with JsonConvert<GetPromotionDetailDataRecordPublishStatus> {
 	int? id;
 	String? text;
 }
 
-class GetPromotionDetailEntityBench with JsonConvert<GetPromotionDetailEntityBench> {
+class GetPromotionDetailBench with JsonConvert<GetPromotionDetailBench> {
 	int? second;
 	double? millisecond;
 	String? format;

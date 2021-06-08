@@ -2,10 +2,10 @@ import 'package:demoapp/model/get_promotion_detail_entity.dart';
 
 getPromotionDetailEntityFromJson(GetPromotionDetailEntity data, Map<String, dynamic> json) {
 	if (json['data'] != null) {
-		data.data = GetPromotionDetailEntityData().fromJson(json['data']);
+		data.data = GetPromotionDetailData().fromJson(json['data']);
 	}
 	if (json['bench'] != null) {
-		data.bench = GetPromotionDetailEntityBench().fromJson(json['bench']);
+		data.bench = GetPromotionDetailBench().fromJson(json['bench']);
 	}
 	return data;
 }
@@ -17,12 +17,12 @@ Map<String, dynamic> getPromotionDetailEntityToJson(GetPromotionDetailEntity ent
 	return data;
 }
 
-getPromotionDetailEntityDataFromJson(GetPromotionDetailEntityData data, Map<String, dynamic> json) {
+getPromotionDetailDataFromJson(GetPromotionDetailData data, Map<String, dynamic> json) {
 	if (json['pagination'] != null) {
-		data.pagination = GetPromotionDetailEntityDataPagination().fromJson(json['pagination']);
+		data.pagination = GetPromotionDetailDataPagination().fromJson(json['pagination']);
 	}
 	if (json['record'] != null) {
-		data.record = (json['record'] as List).map((v) => GetPromotionDetailEntityDataRecord().fromJson(v)).toList();
+		data.record = (json['record'] as List).map((v) => GetPromotionDetailDataRecord().fromJson(v)).toList();
 	}
 	if (json['cache'] != null) {
 		data.cache = json['cache'];
@@ -30,7 +30,7 @@ getPromotionDetailEntityDataFromJson(GetPromotionDetailEntityData data, Map<Stri
 	return data;
 }
 
-Map<String, dynamic> getPromotionDetailEntityDataToJson(GetPromotionDetailEntityData entity) {
+Map<String, dynamic> getPromotionDetailDataToJson(GetPromotionDetailData entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	data['pagination'] = entity.pagination?.toJson();
 	data['record'] =  entity.record?.map((v) => v.toJson())?.toList();
@@ -38,7 +38,7 @@ Map<String, dynamic> getPromotionDetailEntityDataToJson(GetPromotionDetailEntity
 	return data;
 }
 
-getPromotionDetailEntityDataPaginationFromJson(GetPromotionDetailEntityDataPagination data, Map<String, dynamic> json) {
+getPromotionDetailDataPaginationFromJson(GetPromotionDetailDataPagination data, Map<String, dynamic> json) {
 	if (json['current_page'] != null) {
 		data.currentPage = json['current_page'] is String
 				? int.tryParse(json['current_page'])
@@ -62,7 +62,7 @@ getPromotionDetailEntityDataPaginationFromJson(GetPromotionDetailEntityDataPagin
 	return data;
 }
 
-Map<String, dynamic> getPromotionDetailEntityDataPaginationToJson(GetPromotionDetailEntityDataPagination entity) {
+Map<String, dynamic> getPromotionDetailDataPaginationToJson(GetPromotionDetailDataPagination entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	data['current_page'] = entity.currentPage;
 	data['last_page'] = entity.lastPage;
@@ -71,7 +71,7 @@ Map<String, dynamic> getPromotionDetailEntityDataPaginationToJson(GetPromotionDe
 	return data;
 }
 
-getPromotionDetailEntityDataRecordFromJson(GetPromotionDetailEntityDataRecord data, Map<String, dynamic> json) {
+getPromotionDetailDataRecordFromJson(GetPromotionDetailDataRecord data, Map<String, dynamic> json) {
 	if (json['id'] != null) {
 		data.id = json['id'] is String
 				? int.tryParse(json['id'])
@@ -101,16 +101,16 @@ getPromotionDetailEntityDataRecordFromJson(GetPromotionDetailEntityDataRecord da
 		data.description = json['description'].toString();
 	}
 	if (json['store'] != null) {
-		data.store = GetPromotionDetailEntityDataRecordStore().fromJson(json['store']);
+		data.store = GetPromotionDetailDataRecordStore().fromJson(json['store']);
 	}
 	if (json['venue'] != null) {
-		data.venue = GetPromotionDetailEntityDataRecordVenue().fromJson(json['venue']);
+		data.venue = GetPromotionDetailDataRecordVenue().fromJson(json['venue']);
 	}
 	if (json['show_time'] != null) {
-		data.showTime = GetPromotionDetailEntityDataRecordShowTime().fromJson(json['show_time']);
+		data.showTime = GetPromotionDetailDataRecordShowTime().fromJson(json['show_time']);
 	}
 	if (json['price'] != null) {
-		data.price = GetPromotionDetailEntityDataRecordPrice().fromJson(json['price']);
+		data.price = GetPromotionDetailDataRecordPrice().fromJson(json['price']);
 	}
 	if (json['variants'] != null) {
 		data.variants = (json['variants'] as List).map((v) => v).toList().cast<dynamic>();
@@ -119,7 +119,7 @@ getPromotionDetailEntityDataRecordFromJson(GetPromotionDetailEntityDataRecord da
 		data.attributes = (json['attributes'] as List).map((v) => v).toList().cast<dynamic>();
 	}
 	if (json['images'] != null) {
-		data.images = (json['images'] as List).map((v) => GetPromotionDetailEntityDataRecordImages().fromJson(v)).toList();
+		data.images = (json['images'] as List).map((v) => GetPromotionDetailDataRecordImages().fromJson(v)).toList();
 	}
 	if (json['remain'] != null) {
 		data.remain = json['remain'] is String
@@ -169,7 +169,7 @@ getPromotionDetailEntityDataRecordFromJson(GetPromotionDetailEntityDataRecord da
 		data.ticketShipping = json['ticket_shipping'];
 	}
 	if (json['publish_status'] != null) {
-		data.publishStatus = GetPromotionDetailEntityDataRecordPublishStatus().fromJson(json['publish_status']);
+		data.publishStatus = GetPromotionDetailDataRecordPublishStatus().fromJson(json['publish_status']);
 	}
 	if (json['publish_at'] != null) {
 		data.publishAt = json['publish_at'].toString();
@@ -203,7 +203,7 @@ getPromotionDetailEntityDataRecordFromJson(GetPromotionDetailEntityDataRecord da
 	return data;
 }
 
-Map<String, dynamic> getPromotionDetailEntityDataRecordToJson(GetPromotionDetailEntityDataRecord entity) {
+Map<String, dynamic> getPromotionDetailDataRecordToJson(GetPromotionDetailDataRecord entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	data['id'] = entity.id;
 	data['slug'] = entity.slug;
@@ -246,7 +246,7 @@ Map<String, dynamic> getPromotionDetailEntityDataRecordToJson(GetPromotionDetail
 	return data;
 }
 
-getPromotionDetailEntityDataRecordStoreFromJson(GetPromotionDetailEntityDataRecordStore data, Map<String, dynamic> json) {
+getPromotionDetailDataRecordStoreFromJson(GetPromotionDetailDataRecordStore data, Map<String, dynamic> json) {
 	if (json['id'] != null) {
 		data.id = json['id'] is String
 				? int.tryParse(json['id'])
@@ -259,24 +259,24 @@ getPromotionDetailEntityDataRecordStoreFromJson(GetPromotionDetailEntityDataReco
 		data.slug = json['slug'].toString();
 	}
 	if (json['type'] != null) {
-		data.type = GetPromotionDetailEntityDataRecordStoreType().fromJson(json['type']);
+		data.type = GetPromotionDetailDataRecordStoreType().fromJson(json['type']);
 	}
 	if (json['section'] != null) {
-		data.section = GetPromotionDetailEntityDataRecordStoreSection().fromJson(json['section']);
+		data.section = GetPromotionDetailDataRecordStoreSection().fromJson(json['section']);
 	}
 	if (json['status'] != null) {
 		data.status = json['status'];
 	}
 	if (json['image'] != null) {
-		data.image = GetPromotionDetailEntityDataRecordStoreImage().fromJson(json['image']);
+		data.image = GetPromotionDetailDataRecordStoreImage().fromJson(json['image']);
 	}
 	if (json['venue'] != null) {
-		data.venue = GetPromotionDetailEntityDataRecordStoreVenue().fromJson(json['venue']);
+		data.venue = GetPromotionDetailDataRecordStoreVenue().fromJson(json['venue']);
 	}
 	return data;
 }
 
-Map<String, dynamic> getPromotionDetailEntityDataRecordStoreToJson(GetPromotionDetailEntityDataRecordStore entity) {
+Map<String, dynamic> getPromotionDetailDataRecordStoreToJson(GetPromotionDetailDataRecordStore entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	data['id'] = entity.id;
 	data['name'] = entity.name;
@@ -289,7 +289,7 @@ Map<String, dynamic> getPromotionDetailEntityDataRecordStoreToJson(GetPromotionD
 	return data;
 }
 
-getPromotionDetailEntityDataRecordStoreTypeFromJson(GetPromotionDetailEntityDataRecordStoreType data, Map<String, dynamic> json) {
+getPromotionDetailDataRecordStoreTypeFromJson(GetPromotionDetailDataRecordStoreType data, Map<String, dynamic> json) {
 	if (json['id'] != null) {
 		data.id = json['id'] is String
 				? int.tryParse(json['id'])
@@ -301,14 +301,14 @@ getPromotionDetailEntityDataRecordStoreTypeFromJson(GetPromotionDetailEntityData
 	return data;
 }
 
-Map<String, dynamic> getPromotionDetailEntityDataRecordStoreTypeToJson(GetPromotionDetailEntityDataRecordStoreType entity) {
+Map<String, dynamic> getPromotionDetailDataRecordStoreTypeToJson(GetPromotionDetailDataRecordStoreType entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	data['id'] = entity.id;
 	data['text'] = entity.text;
 	return data;
 }
 
-getPromotionDetailEntityDataRecordStoreSectionFromJson(GetPromotionDetailEntityDataRecordStoreSection data, Map<String, dynamic> json) {
+getPromotionDetailDataRecordStoreSectionFromJson(GetPromotionDetailDataRecordStoreSection data, Map<String, dynamic> json) {
 	if (json['id'] != null) {
 		data.id = json['id'] is String
 				? int.tryParse(json['id'])
@@ -320,23 +320,23 @@ getPromotionDetailEntityDataRecordStoreSectionFromJson(GetPromotionDetailEntityD
 	return data;
 }
 
-Map<String, dynamic> getPromotionDetailEntityDataRecordStoreSectionToJson(GetPromotionDetailEntityDataRecordStoreSection entity) {
+Map<String, dynamic> getPromotionDetailDataRecordStoreSectionToJson(GetPromotionDetailDataRecordStoreSection entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	data['id'] = entity.id;
 	data['text'] = entity.text;
 	return data;
 }
 
-getPromotionDetailEntityDataRecordStoreImageFromJson(GetPromotionDetailEntityDataRecordStoreImage data, Map<String, dynamic> json) {
+getPromotionDetailDataRecordStoreImageFromJson(GetPromotionDetailDataRecordStoreImage data, Map<String, dynamic> json) {
 	return data;
 }
 
-Map<String, dynamic> getPromotionDetailEntityDataRecordStoreImageToJson(GetPromotionDetailEntityDataRecordStoreImage entity) {
+Map<String, dynamic> getPromotionDetailDataRecordStoreImageToJson(GetPromotionDetailDataRecordStoreImage entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	return data;
 }
 
-getPromotionDetailEntityDataRecordStoreVenueFromJson(GetPromotionDetailEntityDataRecordStoreVenue data, Map<String, dynamic> json) {
+getPromotionDetailDataRecordStoreVenueFromJson(GetPromotionDetailDataRecordStoreVenue data, Map<String, dynamic> json) {
 	if (json['id'] != null) {
 		data.id = json['id'] is String
 				? int.tryParse(json['id'])
@@ -361,7 +361,7 @@ getPromotionDetailEntityDataRecordStoreVenueFromJson(GetPromotionDetailEntityDat
 	return data;
 }
 
-Map<String, dynamic> getPromotionDetailEntityDataRecordStoreVenueToJson(GetPromotionDetailEntityDataRecordStoreVenue entity) {
+Map<String, dynamic> getPromotionDetailDataRecordStoreVenueToJson(GetPromotionDetailDataRecordStoreVenue entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	data['id'] = entity.id;
 	data['lat'] = entity.lat;
@@ -371,7 +371,7 @@ Map<String, dynamic> getPromotionDetailEntityDataRecordStoreVenueToJson(GetPromo
 	return data;
 }
 
-getPromotionDetailEntityDataRecordVenueFromJson(GetPromotionDetailEntityDataRecordVenue data, Map<String, dynamic> json) {
+getPromotionDetailDataRecordVenueFromJson(GetPromotionDetailDataRecordVenue data, Map<String, dynamic> json) {
 	if (json['id'] != null) {
 		data.id = json['id'] is String
 				? int.tryParse(json['id'])
@@ -396,7 +396,7 @@ getPromotionDetailEntityDataRecordVenueFromJson(GetPromotionDetailEntityDataReco
 	return data;
 }
 
-Map<String, dynamic> getPromotionDetailEntityDataRecordVenueToJson(GetPromotionDetailEntityDataRecordVenue entity) {
+Map<String, dynamic> getPromotionDetailDataRecordVenueToJson(GetPromotionDetailDataRecordVenue entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	data['id'] = entity.id;
 	data['lat'] = entity.lat;
@@ -406,7 +406,7 @@ Map<String, dynamic> getPromotionDetailEntityDataRecordVenueToJson(GetPromotionD
 	return data;
 }
 
-getPromotionDetailEntityDataRecordShowTimeFromJson(GetPromotionDetailEntityDataRecordShowTime data, Map<String, dynamic> json) {
+getPromotionDetailDataRecordShowTimeFromJson(GetPromotionDetailDataRecordShowTime data, Map<String, dynamic> json) {
 	if (json['start'] != null) {
 		data.start = json['start'].toString();
 	}
@@ -433,7 +433,7 @@ getPromotionDetailEntityDataRecordShowTimeFromJson(GetPromotionDetailEntityDataR
 	return data;
 }
 
-Map<String, dynamic> getPromotionDetailEntityDataRecordShowTimeToJson(GetPromotionDetailEntityDataRecordShowTime entity) {
+Map<String, dynamic> getPromotionDetailDataRecordShowTimeToJson(GetPromotionDetailDataRecordShowTime entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	data['start'] = entity.start;
 	data['end'] = entity.end;
@@ -445,7 +445,7 @@ Map<String, dynamic> getPromotionDetailEntityDataRecordShowTimeToJson(GetPromoti
 	return data;
 }
 
-getPromotionDetailEntityDataRecordPriceFromJson(GetPromotionDetailEntityDataRecordPrice data, Map<String, dynamic> json) {
+getPromotionDetailDataRecordPriceFromJson(GetPromotionDetailDataRecordPrice data, Map<String, dynamic> json) {
 	if (json['currency_code'] != null) {
 		data.currencyCode = json['currency_code'].toString();
 	}
@@ -490,7 +490,7 @@ getPromotionDetailEntityDataRecordPriceFromJson(GetPromotionDetailEntityDataReco
 	return data;
 }
 
-Map<String, dynamic> getPromotionDetailEntityDataRecordPriceToJson(GetPromotionDetailEntityDataRecordPrice entity) {
+Map<String, dynamic> getPromotionDetailDataRecordPriceToJson(GetPromotionDetailDataRecordPrice entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	data['currency_code'] = entity.currencyCode;
 	data['currency_symbol'] = entity.currencySymbol;
@@ -506,7 +506,7 @@ Map<String, dynamic> getPromotionDetailEntityDataRecordPriceToJson(GetPromotionD
 	return data;
 }
 
-getPromotionDetailEntityDataRecordImagesFromJson(GetPromotionDetailEntityDataRecordImages data, Map<String, dynamic> json) {
+getPromotionDetailDataRecordImagesFromJson(GetPromotionDetailDataRecordImages data, Map<String, dynamic> json) {
 	if (json['id'] != null) {
 		data.id = json['id'].toString();
 	}
@@ -555,7 +555,7 @@ getPromotionDetailEntityDataRecordImagesFromJson(GetPromotionDetailEntityDataRec
 	return data;
 }
 
-Map<String, dynamic> getPromotionDetailEntityDataRecordImagesToJson(GetPromotionDetailEntityDataRecordImages entity) {
+Map<String, dynamic> getPromotionDetailDataRecordImagesToJson(GetPromotionDetailDataRecordImages entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	data['id'] = entity.id;
 	data['store_id'] = entity.storeId;
@@ -571,7 +571,7 @@ Map<String, dynamic> getPromotionDetailEntityDataRecordImagesToJson(GetPromotion
 	return data;
 }
 
-getPromotionDetailEntityDataRecordPublishStatusFromJson(GetPromotionDetailEntityDataRecordPublishStatus data, Map<String, dynamic> json) {
+getPromotionDetailDataRecordPublishStatusFromJson(GetPromotionDetailDataRecordPublishStatus data, Map<String, dynamic> json) {
 	if (json['id'] != null) {
 		data.id = json['id'] is String
 				? int.tryParse(json['id'])
@@ -583,14 +583,14 @@ getPromotionDetailEntityDataRecordPublishStatusFromJson(GetPromotionDetailEntity
 	return data;
 }
 
-Map<String, dynamic> getPromotionDetailEntityDataRecordPublishStatusToJson(GetPromotionDetailEntityDataRecordPublishStatus entity) {
+Map<String, dynamic> getPromotionDetailDataRecordPublishStatusToJson(GetPromotionDetailDataRecordPublishStatus entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	data['id'] = entity.id;
 	data['text'] = entity.text;
 	return data;
 }
 
-getPromotionDetailEntityBenchFromJson(GetPromotionDetailEntityBench data, Map<String, dynamic> json) {
+getPromotionDetailBenchFromJson(GetPromotionDetailBench data, Map<String, dynamic> json) {
 	if (json['second'] != null) {
 		data.second = json['second'] is String
 				? int.tryParse(json['second'])
@@ -607,7 +607,7 @@ getPromotionDetailEntityBenchFromJson(GetPromotionDetailEntityBench data, Map<St
 	return data;
 }
 
-Map<String, dynamic> getPromotionDetailEntityBenchToJson(GetPromotionDetailEntityBench entity) {
+Map<String, dynamic> getPromotionDetailBenchToJson(GetPromotionDetailBench entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	data['second'] = entity.second;
 	data['millisecond'] = entity.millisecond;

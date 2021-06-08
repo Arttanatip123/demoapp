@@ -6,9 +6,6 @@ import 'package:flutter/material.dart';
 class Promotion extends StatelessWidget {
   HomeViewModel viewModel;
   Promotion(this.viewModel);
-
-
-
   final List promotion = [
     {
       "id": 1,
@@ -35,9 +32,10 @@ class Promotion extends StatelessWidget {
       "price": 350,
     },
   ];
+
+  List promotions = [];
   @override
   Widget build(BuildContext context) {
-
     return BaseWidget(builder: (context, model, child){
       return Container(
         child: Column(
@@ -98,7 +96,7 @@ class Promotion extends StatelessWidget {
             ),
             GridView.builder(
                 padding: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 19.5),
-                itemCount: promotion.length,
+                itemCount: viewModel.promotionDetail?.record?.length,
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 gridDelegate:
@@ -135,8 +133,10 @@ class Promotion extends StatelessWidget {
                               topLeft: Radius.circular(3.0),
                               topRight: Radius.circular(3.0),
                             ),
-                            child: Image.asset(
-                              '${promotion[index]["img"]}',fit: BoxFit.fill,),
+                            // child: Image.asset(
+                            //   'images/concert1.jpg',fit: BoxFit.fill,),
+                            child: Image.network(
+                              '${viewModel.promotionDetail?.record?.first.images?.first.url}',fit: BoxFit.fill,),
                           ),
                         ),
                         Container(
@@ -146,7 +146,7 @@ class Promotion extends StatelessWidget {
                             right: 11.0,
                           ),
                           child: Text(
-                            "${promotion[index]["name"]}",
+                            "${viewModel.promotionDetail?.record?.first.name}",
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
@@ -162,7 +162,7 @@ class Promotion extends StatelessWidget {
                           padding: EdgeInsets.only(
                             left: 7.0,),
                           child: Text(
-                            "${promotion[index]["artists"]}",
+                            "${viewModel.promotionDetail?.record?.first.description}",
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
@@ -184,7 +184,7 @@ class Promotion extends StatelessWidget {
                               const EdgeInsets.only(
                                   left: 9.0),
                               child: new Text(
-                                "${promotion[index]["date"]}",
+                                "${viewModel.promotionDetail?.record?.first.showTime?.textShortDate}",
                                 style: TextStyle(
                                   fontFamily:
                                   'SukhumvitSet',
@@ -198,22 +198,22 @@ class Promotion extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding:
-                              const EdgeInsets.only(
-                                  right: 11.0),
-                              child: new Text("฿${promotion[index]["price"]}",
-                                  style: TextStyle(
-                                    fontFamily: 'SFProText',
-                                    color:
-                                    Color(0xff08080a),
-                                    fontSize: 16,
-                                    fontWeight:
-                                    FontWeight.w700,
-                                    fontStyle:
-                                    FontStyle.normal,
-                                  )),
-                            )
+                            // Padding(
+                            //   padding:
+                            //   const EdgeInsets.only(
+                            //       right: 11.0),
+                            //   child: new Text("฿${promotion[index]["price"]}",
+                            //       style: TextStyle(
+                            //         fontFamily: 'SFProText',
+                            //         color:
+                            //         Color(0xff08080a),
+                            //         fontSize: 16,
+                            //         fontWeight:
+                            //         FontWeight.w700,
+                            //         fontStyle:
+                            //         FontStyle.normal,
+                            //       )),
+                            // )
                           ],
                         ),
                       ],

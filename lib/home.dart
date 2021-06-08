@@ -1,6 +1,7 @@
 import 'package:demoapp/core/base_state_ful.dart';
 import 'package:demoapp/core/base_view_model.dart';
 import 'package:demoapp/core/base_widget.dart';
+import 'package:demoapp/errors/base_error_entity.dart';
 import 'package:demoapp/model/get_checkin_detail_entity.dart';
 import 'package:demoapp/model/get_gallery_detail_entity.dart';
 import 'package:demoapp/model/get_promotion_detail_entity.dart';
@@ -68,22 +69,21 @@ class _HomeState extends BaseStateProvider<Home, HomeViewModel> {
 class HomeViewModel extends BaseViewModel{
   String storeId;
   GetStoreDetailData? storeDetail;
-  GetPromotionDetailEntityData? promotionDetail;
+  GetPromotionDetailData? promotionDetail;
   GetReviewDetailData? reviewDetail;
   GetCheckinDetailData? checkinDetail;
   GetGalleryDetailData? galleryDetail;
-
   
   HomeViewModel(this.storeId);
 
   @override
   void postInit() {
     super.postInit();
-    getStoreDetail();
-    getPromotionDetail();
-    getReviewDetail();
-    getCheckIn();
-    getGallery();
+    // getStoreDetail();
+    // getPromotionDetail();
+    // getReviewDetail();
+    // getCheckIn();
+    // getGallery();
   }
   
   void getStoreDetail() {
@@ -118,7 +118,25 @@ class HomeViewModel extends BaseViewModel{
       galleryDetail = await di.pageRepository.getGalleryById(storeId);
     });
   }
-  
+
+  String? genreList(){
+    try{
+      String attributes = '';
+      var genre = storeDetail?.attributes?.firstWhere((element){
+        return element.code == "genre";
+      });
+
+      var genreList = genre?.items?.map((e){
+        return e.name;
+      }).toList();
+      attributes = genreList!.join(", ");
+      return attributes;
+    }catch(e){
+      return null;
+    }
+
+  }
+
   @override
   void onError(error) {
      super.onError(error);

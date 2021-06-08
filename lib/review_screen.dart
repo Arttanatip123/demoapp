@@ -28,6 +28,11 @@ class Review extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        border: Border(
+          top: BorderSide(width: 3.0, color: Colors.grey.shade300)
+        )
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

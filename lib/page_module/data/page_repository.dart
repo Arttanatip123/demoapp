@@ -24,8 +24,8 @@ class PageRepository extends BaseRepository{
     return result.data;
   }
 
-  Future<GetPromotionDetailEntityData?> getPromotionDetailById(String storeId) async{
-    final result = await api.getPromotionById(storeId);
+  Future<GetPromotionDetailData?> getPromotionDetailById(String storeId) async{
+    final result = await api.getPromotionDetailById(storeId);
     promotionDetail = result;
     return result.data;
   }
@@ -47,6 +47,4 @@ class PageRepository extends BaseRepository{
     galleryDetail = result;
     return result.data;
   }
-
-
 }

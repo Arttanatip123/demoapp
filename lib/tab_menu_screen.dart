@@ -1,11 +1,7 @@
 import 'package:demoapp/check_in_screen.dart';
-import 'package:demoapp/coming_concert_screen.dart';
-import 'package:demoapp/core/base_view_model.dart';
 import 'package:demoapp/core/base_widget.dart';
 import 'package:demoapp/home.dart';
 import 'package:demoapp/image_review_screen.dart';
-import 'package:demoapp/model/get_promotion_detail_entity.dart';
-import 'package:demoapp/product_screen.dart';
 import 'package:demoapp/profile_detail_screen.dart';
 import 'package:demoapp/promotion_screen.dart';
 import 'package:demoapp/review_screen.dart';
@@ -32,8 +28,7 @@ class _TapMenuState extends State<TapMenu> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseWidget(builder: (context, model, child){
-      return DefaultTabController(
+    return DefaultTabController(
         length: 4,
         initialIndex: 0,
         child: Column(
@@ -73,9 +68,9 @@ class _TapMenuState extends State<TapMenu> {
                     child: Column(
                       children: [
                         ProfileDetail(viewModel),
-                        ComingConcert(viewModel),
+                        //ComingConcert(viewModel),
                         Promotion(viewModel),
-                        Product(viewModel),
+                        //Product(viewModel),
                         Review(viewModel),
                         CheckIn(viewModel),
                         ImageReview(viewModel),
@@ -103,8 +98,6 @@ class _TapMenuState extends State<TapMenu> {
           ],
         ),
       );
-    }, model: viewModel);
-
   }
 }
 

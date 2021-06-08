@@ -25,29 +25,29 @@ class PageApi{
   }
 
   //TODO Get Promotion detail
-  Future<GetPromotionDetailEntity> getPromotionById(String storeId) async{
+  Future<GetPromotionDetailEntity> getPromotionDetailById(String storeId) async{
     Response response =
-    await api.get('/products?type=voucher&store_id=' + '/$storeId', {"is_open":"true"} , BaseErrorEntity.badRequestToModelError, hasPermission: false, headers: {"Accept-Language":"th"});
+    await api.get('/products?type=voucher&store_id=5000090', {"is_open":"true"} , BaseErrorEntity.badRequestToModelError, hasPermission: false, headers: {"Accept-Language":"th"});
     return GetPromotionDetailEntity().fromJson(response.data);
   }
 
   //TODO Get review detail
   Future<GetReviewDetailEntity> getReviewById(String storeId) async{
     Response response =
-    await api.get('/products?type=voucher&store_id=' + '/$storeId', {"is_open":"true"} , BaseErrorEntity.badRequestToModelError, hasPermission: false, headers: {"Accept-Language":"th"});
+    await api.get('/stores/5000090/reviews?limit=3&page=1', {"is_open":"true"} , BaseErrorEntity.badRequestToModelError, hasPermission: false, headers: {"Accept-Language":"th"});
     return GetReviewDetailEntity().fromJson(response.data);
   }
 
 
   Future<GetCheckinDetailEntity> getCheckinById(String storeId) async {
     Response response =
-    await api.get(pathStores + '/$storeId' + '/checkins/users?limit=6&page=1', {"is_open":"true"} , BaseErrorEntity.badRequestToModelError, hasPermission: false, headers: {"Accept-Language":"th"});
+    await api.get('/stores/5000090/checkins/users?limit=6&page=1', {"is_open":"true"} , BaseErrorEntity.badRequestToModelError, hasPermission: false, headers: {"Accept-Language":"th"});
     return GetCheckinDetailEntity().fromJson(response.data);
   }
 
   Future<GetGalleryDetailEntity> getGalleryById(String storeId) async {
     Response response =
-    await api.get(pathStores + '/$storeId' + '/gallery?limit=6&page=0', {"is_open":"true"} , BaseErrorEntity.badRequestToModelError, hasPermission: false, headers: {"Accept-Language":"th"});
+    await api.get('/stores/5000090/gallery?limit=6&page=0', {"is_open":"true"} , BaseErrorEntity.badRequestToModelError, hasPermission: false, headers: {"Accept-Language":"th"});
     return GetGalleryDetailEntity().fromJson(response.data);
   }
 

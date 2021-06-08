@@ -39,34 +39,34 @@ class JsonConvert<T> {
 				return languageEntityFromJson(data as LanguageEntity, json) as T;
 			case GetPromotionDetailEntity:
 				return getPromotionDetailEntityFromJson(data as GetPromotionDetailEntity, json) as T;
-			case GetPromotionDetailEntityData:
-				return getPromotionDetailEntityDataFromJson(data as GetPromotionDetailEntityData, json) as T;
-			case GetPromotionDetailEntityDataPagination:
-				return getPromotionDetailEntityDataPaginationFromJson(data as GetPromotionDetailEntityDataPagination, json) as T;
-			case GetPromotionDetailEntityDataRecord:
-				return getPromotionDetailEntityDataRecordFromJson(data as GetPromotionDetailEntityDataRecord, json) as T;
-			case GetPromotionDetailEntityDataRecordStore:
-				return getPromotionDetailEntityDataRecordStoreFromJson(data as GetPromotionDetailEntityDataRecordStore, json) as T;
-			case GetPromotionDetailEntityDataRecordStoreType:
-				return getPromotionDetailEntityDataRecordStoreTypeFromJson(data as GetPromotionDetailEntityDataRecordStoreType, json) as T;
-			case GetPromotionDetailEntityDataRecordStoreSection:
-				return getPromotionDetailEntityDataRecordStoreSectionFromJson(data as GetPromotionDetailEntityDataRecordStoreSection, json) as T;
-			case GetPromotionDetailEntityDataRecordStoreImage:
-				return getPromotionDetailEntityDataRecordStoreImageFromJson(data as GetPromotionDetailEntityDataRecordStoreImage, json) as T;
-			case GetPromotionDetailEntityDataRecordStoreVenue:
-				return getPromotionDetailEntityDataRecordStoreVenueFromJson(data as GetPromotionDetailEntityDataRecordStoreVenue, json) as T;
-			case GetPromotionDetailEntityDataRecordVenue:
-				return getPromotionDetailEntityDataRecordVenueFromJson(data as GetPromotionDetailEntityDataRecordVenue, json) as T;
-			case GetPromotionDetailEntityDataRecordShowTime:
-				return getPromotionDetailEntityDataRecordShowTimeFromJson(data as GetPromotionDetailEntityDataRecordShowTime, json) as T;
-			case GetPromotionDetailEntityDataRecordPrice:
-				return getPromotionDetailEntityDataRecordPriceFromJson(data as GetPromotionDetailEntityDataRecordPrice, json) as T;
-			case GetPromotionDetailEntityDataRecordImages:
-				return getPromotionDetailEntityDataRecordImagesFromJson(data as GetPromotionDetailEntityDataRecordImages, json) as T;
-			case GetPromotionDetailEntityDataRecordPublishStatus:
-				return getPromotionDetailEntityDataRecordPublishStatusFromJson(data as GetPromotionDetailEntityDataRecordPublishStatus, json) as T;
-			case GetPromotionDetailEntityBench:
-				return getPromotionDetailEntityBenchFromJson(data as GetPromotionDetailEntityBench, json) as T;
+			case GetPromotionDetailData:
+				return getPromotionDetailDataFromJson(data as GetPromotionDetailData, json) as T;
+			case GetPromotionDetailDataPagination:
+				return getPromotionDetailDataPaginationFromJson(data as GetPromotionDetailDataPagination, json) as T;
+			case GetPromotionDetailDataRecord:
+				return getPromotionDetailDataRecordFromJson(data as GetPromotionDetailDataRecord, json) as T;
+			case GetPromotionDetailDataRecordStore:
+				return getPromotionDetailDataRecordStoreFromJson(data as GetPromotionDetailDataRecordStore, json) as T;
+			case GetPromotionDetailDataRecordStoreType:
+				return getPromotionDetailDataRecordStoreTypeFromJson(data as GetPromotionDetailDataRecordStoreType, json) as T;
+			case GetPromotionDetailDataRecordStoreSection:
+				return getPromotionDetailDataRecordStoreSectionFromJson(data as GetPromotionDetailDataRecordStoreSection, json) as T;
+			case GetPromotionDetailDataRecordStoreImage:
+				return getPromotionDetailDataRecordStoreImageFromJson(data as GetPromotionDetailDataRecordStoreImage, json) as T;
+			case GetPromotionDetailDataRecordStoreVenue:
+				return getPromotionDetailDataRecordStoreVenueFromJson(data as GetPromotionDetailDataRecordStoreVenue, json) as T;
+			case GetPromotionDetailDataRecordVenue:
+				return getPromotionDetailDataRecordVenueFromJson(data as GetPromotionDetailDataRecordVenue, json) as T;
+			case GetPromotionDetailDataRecordShowTime:
+				return getPromotionDetailDataRecordShowTimeFromJson(data as GetPromotionDetailDataRecordShowTime, json) as T;
+			case GetPromotionDetailDataRecordPrice:
+				return getPromotionDetailDataRecordPriceFromJson(data as GetPromotionDetailDataRecordPrice, json) as T;
+			case GetPromotionDetailDataRecordImages:
+				return getPromotionDetailDataRecordImagesFromJson(data as GetPromotionDetailDataRecordImages, json) as T;
+			case GetPromotionDetailDataRecordPublishStatus:
+				return getPromotionDetailDataRecordPublishStatusFromJson(data as GetPromotionDetailDataRecordPublishStatus, json) as T;
+			case GetPromotionDetailBench:
+				return getPromotionDetailBenchFromJson(data as GetPromotionDetailBench, json) as T;
 			case GetCheckinDetailEntity:
 				return getCheckinDetailEntityFromJson(data as GetCheckinDetailEntity, json) as T;
 			case GetCheckinDetailData:
@@ -216,34 +216,34 @@ class JsonConvert<T> {
 				return languageEntityToJson(data as LanguageEntity);
 			case GetPromotionDetailEntity:
 				return getPromotionDetailEntityToJson(data as GetPromotionDetailEntity);
-			case GetPromotionDetailEntityData:
-				return getPromotionDetailEntityDataToJson(data as GetPromotionDetailEntityData);
-			case GetPromotionDetailEntityDataPagination:
-				return getPromotionDetailEntityDataPaginationToJson(data as GetPromotionDetailEntityDataPagination);
-			case GetPromotionDetailEntityDataRecord:
-				return getPromotionDetailEntityDataRecordToJson(data as GetPromotionDetailEntityDataRecord);
-			case GetPromotionDetailEntityDataRecordStore:
-				return getPromotionDetailEntityDataRecordStoreToJson(data as GetPromotionDetailEntityDataRecordStore);
-			case GetPromotionDetailEntityDataRecordStoreType:
-				return getPromotionDetailEntityDataRecordStoreTypeToJson(data as GetPromotionDetailEntityDataRecordStoreType);
-			case GetPromotionDetailEntityDataRecordStoreSection:
-				return getPromotionDetailEntityDataRecordStoreSectionToJson(data as GetPromotionDetailEntityDataRecordStoreSection);
-			case GetPromotionDetailEntityDataRecordStoreImage:
-				return getPromotionDetailEntityDataRecordStoreImageToJson(data as GetPromotionDetailEntityDataRecordStoreImage);
-			case GetPromotionDetailEntityDataRecordStoreVenue:
-				return getPromotionDetailEntityDataRecordStoreVenueToJson(data as GetPromotionDetailEntityDataRecordStoreVenue);
-			case GetPromotionDetailEntityDataRecordVenue:
-				return getPromotionDetailEntityDataRecordVenueToJson(data as GetPromotionDetailEntityDataRecordVenue);
-			case GetPromotionDetailEntityDataRecordShowTime:
-				return getPromotionDetailEntityDataRecordShowTimeToJson(data as GetPromotionDetailEntityDataRecordShowTime);
-			case GetPromotionDetailEntityDataRecordPrice:
-				return getPromotionDetailEntityDataRecordPriceToJson(data as GetPromotionDetailEntityDataRecordPrice);
-			case GetPromotionDetailEntityDataRecordImages:
-				return getPromotionDetailEntityDataRecordImagesToJson(data as GetPromotionDetailEntityDataRecordImages);
-			case GetPromotionDetailEntityDataRecordPublishStatus:
-				return getPromotionDetailEntityDataRecordPublishStatusToJson(data as GetPromotionDetailEntityDataRecordPublishStatus);
-			case GetPromotionDetailEntityBench:
-				return getPromotionDetailEntityBenchToJson(data as GetPromotionDetailEntityBench);
+			case GetPromotionDetailData:
+				return getPromotionDetailDataToJson(data as GetPromotionDetailData);
+			case GetPromotionDetailDataPagination:
+				return getPromotionDetailDataPaginationToJson(data as GetPromotionDetailDataPagination);
+			case GetPromotionDetailDataRecord:
+				return getPromotionDetailDataRecordToJson(data as GetPromotionDetailDataRecord);
+			case GetPromotionDetailDataRecordStore:
+				return getPromotionDetailDataRecordStoreToJson(data as GetPromotionDetailDataRecordStore);
+			case GetPromotionDetailDataRecordStoreType:
+				return getPromotionDetailDataRecordStoreTypeToJson(data as GetPromotionDetailDataRecordStoreType);
+			case GetPromotionDetailDataRecordStoreSection:
+				return getPromotionDetailDataRecordStoreSectionToJson(data as GetPromotionDetailDataRecordStoreSection);
+			case GetPromotionDetailDataRecordStoreImage:
+				return getPromotionDetailDataRecordStoreImageToJson(data as GetPromotionDetailDataRecordStoreImage);
+			case GetPromotionDetailDataRecordStoreVenue:
+				return getPromotionDetailDataRecordStoreVenueToJson(data as GetPromotionDetailDataRecordStoreVenue);
+			case GetPromotionDetailDataRecordVenue:
+				return getPromotionDetailDataRecordVenueToJson(data as GetPromotionDetailDataRecordVenue);
+			case GetPromotionDetailDataRecordShowTime:
+				return getPromotionDetailDataRecordShowTimeToJson(data as GetPromotionDetailDataRecordShowTime);
+			case GetPromotionDetailDataRecordPrice:
+				return getPromotionDetailDataRecordPriceToJson(data as GetPromotionDetailDataRecordPrice);
+			case GetPromotionDetailDataRecordImages:
+				return getPromotionDetailDataRecordImagesToJson(data as GetPromotionDetailDataRecordImages);
+			case GetPromotionDetailDataRecordPublishStatus:
+				return getPromotionDetailDataRecordPublishStatusToJson(data as GetPromotionDetailDataRecordPublishStatus);
+			case GetPromotionDetailBench:
+				return getPromotionDetailBenchToJson(data as GetPromotionDetailBench);
 			case GetCheckinDetailEntity:
 				return getCheckinDetailEntityToJson(data as GetCheckinDetailEntity);
 			case GetCheckinDetailData:
@@ -394,34 +394,34 @@ class JsonConvert<T> {
 			return LanguageEntity().fromJson(json);
 		}	else if(type == (GetPromotionDetailEntity).toString()){
 			return GetPromotionDetailEntity().fromJson(json);
-		}	else if(type == (GetPromotionDetailEntityData).toString()){
-			return GetPromotionDetailEntityData().fromJson(json);
-		}	else if(type == (GetPromotionDetailEntityDataPagination).toString()){
-			return GetPromotionDetailEntityDataPagination().fromJson(json);
-		}	else if(type == (GetPromotionDetailEntityDataRecord).toString()){
-			return GetPromotionDetailEntityDataRecord().fromJson(json);
-		}	else if(type == (GetPromotionDetailEntityDataRecordStore).toString()){
-			return GetPromotionDetailEntityDataRecordStore().fromJson(json);
-		}	else if(type == (GetPromotionDetailEntityDataRecordStoreType).toString()){
-			return GetPromotionDetailEntityDataRecordStoreType().fromJson(json);
-		}	else if(type == (GetPromotionDetailEntityDataRecordStoreSection).toString()){
-			return GetPromotionDetailEntityDataRecordStoreSection().fromJson(json);
-		}	else if(type == (GetPromotionDetailEntityDataRecordStoreImage).toString()){
-			return GetPromotionDetailEntityDataRecordStoreImage().fromJson(json);
-		}	else if(type == (GetPromotionDetailEntityDataRecordStoreVenue).toString()){
-			return GetPromotionDetailEntityDataRecordStoreVenue().fromJson(json);
-		}	else if(type == (GetPromotionDetailEntityDataRecordVenue).toString()){
-			return GetPromotionDetailEntityDataRecordVenue().fromJson(json);
-		}	else if(type == (GetPromotionDetailEntityDataRecordShowTime).toString()){
-			return GetPromotionDetailEntityDataRecordShowTime().fromJson(json);
-		}	else if(type == (GetPromotionDetailEntityDataRecordPrice).toString()){
-			return GetPromotionDetailEntityDataRecordPrice().fromJson(json);
-		}	else if(type == (GetPromotionDetailEntityDataRecordImages).toString()){
-			return GetPromotionDetailEntityDataRecordImages().fromJson(json);
-		}	else if(type == (GetPromotionDetailEntityDataRecordPublishStatus).toString()){
-			return GetPromotionDetailEntityDataRecordPublishStatus().fromJson(json);
-		}	else if(type == (GetPromotionDetailEntityBench).toString()){
-			return GetPromotionDetailEntityBench().fromJson(json);
+		}	else if(type == (GetPromotionDetailData).toString()){
+			return GetPromotionDetailData().fromJson(json);
+		}	else if(type == (GetPromotionDetailDataPagination).toString()){
+			return GetPromotionDetailDataPagination().fromJson(json);
+		}	else if(type == (GetPromotionDetailDataRecord).toString()){
+			return GetPromotionDetailDataRecord().fromJson(json);
+		}	else if(type == (GetPromotionDetailDataRecordStore).toString()){
+			return GetPromotionDetailDataRecordStore().fromJson(json);
+		}	else if(type == (GetPromotionDetailDataRecordStoreType).toString()){
+			return GetPromotionDetailDataRecordStoreType().fromJson(json);
+		}	else if(type == (GetPromotionDetailDataRecordStoreSection).toString()){
+			return GetPromotionDetailDataRecordStoreSection().fromJson(json);
+		}	else if(type == (GetPromotionDetailDataRecordStoreImage).toString()){
+			return GetPromotionDetailDataRecordStoreImage().fromJson(json);
+		}	else if(type == (GetPromotionDetailDataRecordStoreVenue).toString()){
+			return GetPromotionDetailDataRecordStoreVenue().fromJson(json);
+		}	else if(type == (GetPromotionDetailDataRecordVenue).toString()){
+			return GetPromotionDetailDataRecordVenue().fromJson(json);
+		}	else if(type == (GetPromotionDetailDataRecordShowTime).toString()){
+			return GetPromotionDetailDataRecordShowTime().fromJson(json);
+		}	else if(type == (GetPromotionDetailDataRecordPrice).toString()){
+			return GetPromotionDetailDataRecordPrice().fromJson(json);
+		}	else if(type == (GetPromotionDetailDataRecordImages).toString()){
+			return GetPromotionDetailDataRecordImages().fromJson(json);
+		}	else if(type == (GetPromotionDetailDataRecordPublishStatus).toString()){
+			return GetPromotionDetailDataRecordPublishStatus().fromJson(json);
+		}	else if(type == (GetPromotionDetailBench).toString()){
+			return GetPromotionDetailBench().fromJson(json);
 		}	else if(type == (GetCheckinDetailEntity).toString()){
 			return GetCheckinDetailEntity().fromJson(json);
 		}	else if(type == (GetCheckinDetailData).toString()){
@@ -572,34 +572,34 @@ class JsonConvert<T> {
 			return data.map<LanguageEntity>((e) => LanguageEntity().fromJson(e)).toList() as M;
 		}	else if(<GetPromotionDetailEntity>[] is M){
 			return data.map<GetPromotionDetailEntity>((e) => GetPromotionDetailEntity().fromJson(e)).toList() as M;
-		}	else if(<GetPromotionDetailEntityData>[] is M){
-			return data.map<GetPromotionDetailEntityData>((e) => GetPromotionDetailEntityData().fromJson(e)).toList() as M;
-		}	else if(<GetPromotionDetailEntityDataPagination>[] is M){
-			return data.map<GetPromotionDetailEntityDataPagination>((e) => GetPromotionDetailEntityDataPagination().fromJson(e)).toList() as M;
-		}	else if(<GetPromotionDetailEntityDataRecord>[] is M){
-			return data.map<GetPromotionDetailEntityDataRecord>((e) => GetPromotionDetailEntityDataRecord().fromJson(e)).toList() as M;
-		}	else if(<GetPromotionDetailEntityDataRecordStore>[] is M){
-			return data.map<GetPromotionDetailEntityDataRecordStore>((e) => GetPromotionDetailEntityDataRecordStore().fromJson(e)).toList() as M;
-		}	else if(<GetPromotionDetailEntityDataRecordStoreType>[] is M){
-			return data.map<GetPromotionDetailEntityDataRecordStoreType>((e) => GetPromotionDetailEntityDataRecordStoreType().fromJson(e)).toList() as M;
-		}	else if(<GetPromotionDetailEntityDataRecordStoreSection>[] is M){
-			return data.map<GetPromotionDetailEntityDataRecordStoreSection>((e) => GetPromotionDetailEntityDataRecordStoreSection().fromJson(e)).toList() as M;
-		}	else if(<GetPromotionDetailEntityDataRecordStoreImage>[] is M){
-			return data.map<GetPromotionDetailEntityDataRecordStoreImage>((e) => GetPromotionDetailEntityDataRecordStoreImage().fromJson(e)).toList() as M;
-		}	else if(<GetPromotionDetailEntityDataRecordStoreVenue>[] is M){
-			return data.map<GetPromotionDetailEntityDataRecordStoreVenue>((e) => GetPromotionDetailEntityDataRecordStoreVenue().fromJson(e)).toList() as M;
-		}	else if(<GetPromotionDetailEntityDataRecordVenue>[] is M){
-			return data.map<GetPromotionDetailEntityDataRecordVenue>((e) => GetPromotionDetailEntityDataRecordVenue().fromJson(e)).toList() as M;
-		}	else if(<GetPromotionDetailEntityDataRecordShowTime>[] is M){
-			return data.map<GetPromotionDetailEntityDataRecordShowTime>((e) => GetPromotionDetailEntityDataRecordShowTime().fromJson(e)).toList() as M;
-		}	else if(<GetPromotionDetailEntityDataRecordPrice>[] is M){
-			return data.map<GetPromotionDetailEntityDataRecordPrice>((e) => GetPromotionDetailEntityDataRecordPrice().fromJson(e)).toList() as M;
-		}	else if(<GetPromotionDetailEntityDataRecordImages>[] is M){
-			return data.map<GetPromotionDetailEntityDataRecordImages>((e) => GetPromotionDetailEntityDataRecordImages().fromJson(e)).toList() as M;
-		}	else if(<GetPromotionDetailEntityDataRecordPublishStatus>[] is M){
-			return data.map<GetPromotionDetailEntityDataRecordPublishStatus>((e) => GetPromotionDetailEntityDataRecordPublishStatus().fromJson(e)).toList() as M;
-		}	else if(<GetPromotionDetailEntityBench>[] is M){
-			return data.map<GetPromotionDetailEntityBench>((e) => GetPromotionDetailEntityBench().fromJson(e)).toList() as M;
+		}	else if(<GetPromotionDetailData>[] is M){
+			return data.map<GetPromotionDetailData>((e) => GetPromotionDetailData().fromJson(e)).toList() as M;
+		}	else if(<GetPromotionDetailDataPagination>[] is M){
+			return data.map<GetPromotionDetailDataPagination>((e) => GetPromotionDetailDataPagination().fromJson(e)).toList() as M;
+		}	else if(<GetPromotionDetailDataRecord>[] is M){
+			return data.map<GetPromotionDetailDataRecord>((e) => GetPromotionDetailDataRecord().fromJson(e)).toList() as M;
+		}	else if(<GetPromotionDetailDataRecordStore>[] is M){
+			return data.map<GetPromotionDetailDataRecordStore>((e) => GetPromotionDetailDataRecordStore().fromJson(e)).toList() as M;
+		}	else if(<GetPromotionDetailDataRecordStoreType>[] is M){
+			return data.map<GetPromotionDetailDataRecordStoreType>((e) => GetPromotionDetailDataRecordStoreType().fromJson(e)).toList() as M;
+		}	else if(<GetPromotionDetailDataRecordStoreSection>[] is M){
+			return data.map<GetPromotionDetailDataRecordStoreSection>((e) => GetPromotionDetailDataRecordStoreSection().fromJson(e)).toList() as M;
+		}	else if(<GetPromotionDetailDataRecordStoreImage>[] is M){
+			return data.map<GetPromotionDetailDataRecordStoreImage>((e) => GetPromotionDetailDataRecordStoreImage().fromJson(e)).toList() as M;
+		}	else if(<GetPromotionDetailDataRecordStoreVenue>[] is M){
+			return data.map<GetPromotionDetailDataRecordStoreVenue>((e) => GetPromotionDetailDataRecordStoreVenue().fromJson(e)).toList() as M;
+		}	else if(<GetPromotionDetailDataRecordVenue>[] is M){
+			return data.map<GetPromotionDetailDataRecordVenue>((e) => GetPromotionDetailDataRecordVenue().fromJson(e)).toList() as M;
+		}	else if(<GetPromotionDetailDataRecordShowTime>[] is M){
+			return data.map<GetPromotionDetailDataRecordShowTime>((e) => GetPromotionDetailDataRecordShowTime().fromJson(e)).toList() as M;
+		}	else if(<GetPromotionDetailDataRecordPrice>[] is M){
+			return data.map<GetPromotionDetailDataRecordPrice>((e) => GetPromotionDetailDataRecordPrice().fromJson(e)).toList() as M;
+		}	else if(<GetPromotionDetailDataRecordImages>[] is M){
+			return data.map<GetPromotionDetailDataRecordImages>((e) => GetPromotionDetailDataRecordImages().fromJson(e)).toList() as M;
+		}	else if(<GetPromotionDetailDataRecordPublishStatus>[] is M){
+			return data.map<GetPromotionDetailDataRecordPublishStatus>((e) => GetPromotionDetailDataRecordPublishStatus().fromJson(e)).toList() as M;
+		}	else if(<GetPromotionDetailBench>[] is M){
+			return data.map<GetPromotionDetailBench>((e) => GetPromotionDetailBench().fromJson(e)).toList() as M;
 		}	else if(<GetCheckinDetailEntity>[] is M){
 			return data.map<GetCheckinDetailEntity>((e) => GetCheckinDetailEntity().fromJson(e)).toList() as M;
 		}	else if(<GetCheckinDetailData>[] is M){
