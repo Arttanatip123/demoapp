@@ -7,24 +7,6 @@ class Review extends StatelessWidget {
   HomeViewModel viewModel;
   Review(this.viewModel);
 
-  List reviews = [
-    {
-      "id": 1,
-      "img": "images/user/men.png",
-      "name":"วิสุทธิ์ บุนยไกร",
-      "dt": "30 ธ.ค 2020 22:13",
-      "comment": "รสชาติดี เพลงเพราะ ของคนอ่านให้เขวไปจากส่วนที่เป็น Layout เรานำ Lerem Ipsum มาใช้เพราะความที่มันมีการกระจายของตัวอักษรธรรมดาๆ แบบพอประมาณ ซึ่งเอามา",
-      "score": 3.0,
-    },
-    {
-      "id": 2,
-      "img": "images/user/women.png",
-      "name":"จันจิรา แสนไกร",
-      "dt": "22 ธ.ค 2020 21:10",
-      "comment": "จอดรถง่าย เพลงเพราะ อาหารอร่อย ให้เข้าไปจากส่วนที่  Layout เรานำ Lorem Ipsum มาใช้เพราะความที่มันมีการกระจายตัวของตัวอักษรธรรมดาๆ แบบพอประมาณ ซึ่งเอามา ",
-      "score": 4.0,
-    }
-  ];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -56,7 +38,7 @@ class Review extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-                      child: Text("3.1",
+                      child: Text("${viewModel.storeDetail?.averageRating?.toDouble()}",
                           style: TextStyle(
                             fontFamily: 'SukhumvitSet',
                             color: Color(0xff08080a),
@@ -69,7 +51,7 @@ class Review extends StatelessWidget {
                     Expanded(
                       child: Container(
                         child: RatingBar.builder(
-                          initialRating: 3.5,
+                            initialRating: (viewModel.storeDetail?.averageRating ?? 0).toDouble(),
                           minRating: 1,
                           direction: Axis.horizontal,
                           allowHalfRating: true,
@@ -117,7 +99,7 @@ class Review extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 67.0, bottom: 12.5),
-                  child: new Text("11 รีวิว",
+                  child: new Text("${viewModel.storeDetail?.reviewTotal} " + "รีวิว",
                       style: TextStyle(
                         fontFamily: 'SukhumvitSet',
                         color: Color(0xff08080a),
@@ -128,15 +110,15 @@ class Review extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  //margin: EdgeInsets.only(bottom: 30.0),
-                  //color: Colors.grey,
-                  height: 157.0 * reviews.length,
                   child: ListView.builder(
+                      shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),
-                      itemCount: reviews.length,
+                      itemCount: viewModel.reviewDetail?.record?.length ?? 0,
                       itemBuilder: (context, index){
+                        var item = viewModel.reviewDetail?.record?[index];
                         return Container(
                           child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
                                 margin: EdgeInsets.only(bottom: 17.5),
@@ -150,14 +132,18 @@ class Review extends StatelessWidget {
                                 children: [
                                   Container(
                                     padding: EdgeInsets.only(left: 16.0),
-                                      child: CircleAvatar(
-                                        child: Image.asset(reviews[index]["img"]),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(30.0),
+                                        child: CircleAvatar(
+                                          //child: Image.asset(reviews[index]["img"]),
+                                          child: Image.network('${item?.user?.image?.url}'),
+                                        ),
                                       ),
                                   ),
                                   Expanded(
                                     child: Container(
                                       padding: EdgeInsets.only(left: 12.0),
-                                      child: Text(reviews[index]["name"],
+                                      child: Text('${item?.user?.firstName}  ' + '${item?.user?.lastName}',
                                           style: TextStyle(
                                             fontFamily: 'SukhumvitSet',
                                             color: Color(0xff4a4a4a),
@@ -171,10 +157,11 @@ class Review extends StatelessWidget {
                               Container(
                                 margin: EdgeInsets.only(right: 16.0),
                                 child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
                                     Container(
                                       child: RatingBar.builder(
-                                        initialRating: reviews[index]["score"],
+                                        initialRating: (item?.rating ?? 0.0).toDouble(),
                                         minRating: 1,
                                         direction: Axis.horizontal,
                                         allowHalfRating: true,
@@ -191,7 +178,8 @@ class Review extends StatelessWidget {
                                       ),
                                     ),
                                     Container(
-                                      child: new Text(reviews[index]["dt"],
+                                      child: new Text(
+                                            '${item?.createdAt?.date} ' + '${item?.createdAt?.time}',
                                           style: TextStyle(
                                             fontFamily: 'SukhumvitSet',
                                             color: Color(0xff4a4a4a),
@@ -207,9 +195,8 @@ class Review extends StatelessWidget {
                                 ],
                               ),
                               Container(
-                               // color: Colors.grey,
                                 padding: EdgeInsets.only(left: 19.0, right: 45.0, top: 18.0, bottom: 14.0),
-                                child: new Text(reviews[index]["comment"],
+                                child: new Text('${item?.description}',
                                     style: TextStyle(
                                       fontFamily: 'SukhumvitSet',
                                       color: Color(0xff555555),

@@ -1,20 +1,13 @@
 import 'package:demoapp/home.dart';
+import 'package:demoapp/model/get_gallery_detail_entity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:overflow_view/overflow_view.dart';
 
-class ImageReview extends StatelessWidget {
+class Gallery extends StatelessWidget {
   HomeViewModel viewModel;
-  ImageReview(this.viewModel);
+  Gallery(this.viewModel);
 
-
-  List<ImagesReview> imageReview = <ImagesReview>[
-    ImagesReview('images/concert1.jpg'),
-    ImagesReview('images/concert2.jpg'),
-    ImagesReview('images/concert3.jpg'),
-    ImagesReview('images/concert4.jpg'),
-    ImagesReview('images/concert5.jpg'),
-  ];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,25 +32,15 @@ class ImageReview extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(left: 6.0, right: 16.0),
-            child: OverflowView(
-              direction: Axis.horizontal,
-              spacing: 0,
-              children: <Widget>[
-                for (int i = 0; i < imageReview.length; i++)
-                  ImageWidget(
-                    image: imageReview[i].initials,
-                    text: '',
-                  ),
-
-              ],
-              builder: (context, remaining) {
-                int lastImg = remaining - 1;
-                return ImageWidget(
-                  text: '+$lastImg',
-                  image: imageReview[lastImg].initials,
+            child: Row(
+              children: viewModel.galleryList.map((element){
+                final index = viewModel.galleryList.indexOf(element);
+                return galleryWidget(
+                    data: element,
+                    total: viewModel.galleryDetail?.pagination?.total ?? 0,
+                    showTotal: index == viewModel.galleryList.length - 1,
                 );
-              },
+              }).toList(),
             ),
           ),
           Container(
@@ -70,9 +53,9 @@ class ImageReview extends StatelessWidget {
             ),
             margin: EdgeInsets.only(top: 16.0),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  margin: EdgeInsets.only(left: 16.0),
                   child: ButtonWitget(Icons.camera_alt_outlined, "เพิ่มรูป"),
                 ),
                 Container(
@@ -96,7 +79,7 @@ class ImageReview extends StatelessWidget {
 // ignore: non_constant_identifier_names
 Widget ButtonWitget(IconData iconData, String text) {
   return new Container(
-      width: 104,
+      width: 107,
       height: 37,
       decoration: BoxDecoration(
           color: Color(0xffda3534),
@@ -122,72 +105,69 @@ Widget ButtonWitget(IconData iconData, String text) {
 }
 
 
-class ImageWidget extends StatelessWidget {
-  const ImageWidget({Key?  key, required this.image, required this.text}) : super(key: key);
-  final String image;
-  final String text;
+class galleryWidget extends StatelessWidget {
+  const galleryWidget({Key?  key, required this.data, required this.total, this.showTotal = false}) : super(key: key);
+  final GetGalleryDetailDataRecord data;
+  final int total;
+  final bool showTotal;
 
   @override
   Widget build(BuildContext context) {
-    return text == '' ? Stack(
-      children: [
-        Container(
-          margin: EdgeInsets.only(left: 10.0),
-          height: 101.0,
-          width: 101.0,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(5.0),
-            child: Image.asset(
-              image,fit: BoxFit.fill,
+    if(showTotal){
+      return Stack(
+        children: [
+          Container(
+            height: 107.0,
+            width: 107.0,
+            margin: EdgeInsets.only(left: 10.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(5.0),
+              child: Image.network(
+                '${data.image?.resizeUrl}',
+              ),
             ),
           ),
-        ),
-        Container(
-          margin: EdgeInsets.only(left: 10.0),
-          height: 101.0,
-          width: 101.0,
-          color: Colors.black.withOpacity(0.3),
-        ),
-      ],
-    ) : Stack(
-      children: [
-        Container(
-          height: 101.0,
-          width: 101.0,
-          margin: EdgeInsets.only(left: 10.0),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(5.0),
-            child: Image.asset(
-              image,fit: BoxFit.fill,
-            ),
+          Container(
+            margin: EdgeInsets.only(left: 10.0),
+            height: 101.0,
+            width: 101.0,
+            color: Colors.black.withOpacity(0.5),
           ),
-        ),
-        Container(
-          margin: EdgeInsets.only(left: 10.0),
-          height: 101.0,
-          width: 101.0,
-          color: Colors.black.withOpacity(0.3),
-        ),
-        Center(
-          child: new Text(text,
-              style: TextStyle(
-                fontFamily: 'SFUIText',
-                color: Color(0xffffffff),
-                fontSize: 16,
-                fontWeight: FontWeight.w700,
-                fontStyle: FontStyle.normal,
-              )
-          ),
-        ),
 
-      ],
-    );
+           Container(
+             margin: EdgeInsets.only(left: 10.0),
+             height: 101.0,
+             width: 101.0,
+             child: Center(
+               child: Text('+' + (total - 3).toString(),
+                    style: TextStyle(
+                      fontFamily: 'SFUIText',
+                      color: Color(0xffffffff),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                      fontStyle: FontStyle.normal,
+                    ),
+                ),
+             ),
+           ),
+
+        ],
+      );
+
+    }else{
+      return Container(
+        height: 107.0,
+        width: 107.0,
+        margin: EdgeInsets.only(left: 10.0),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(5.0),
+          child: Image.network(
+            '${data.image?.resizeUrl}',
+          ),
+        ),
+      );
+    }
   }
-}
-class ImagesReview {
-  const ImagesReview(this.initials);
-  final String initials;
-
 }
 
 

@@ -9,6 +9,7 @@ import 'package:demoapp/model/get_review_detail_entity.dart';
 import 'package:demoapp/model/get_store_detail_entity.dart';
 import 'package:demoapp/profile_screen.dart';
 import 'package:demoapp/tab_menu_screen.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -22,8 +23,7 @@ class _HomeState extends BaseStateProvider<Home, HomeViewModel> {
     super.initState();
     viewModel = HomeViewModel("5000090");
   }
-  
-  
+
   @override
   Widget build(BuildContext context) {
     return BaseWidget<HomeViewModel>(builder: (context, model, child){
@@ -54,9 +54,8 @@ class _HomeState extends BaseStateProvider<Home, HomeViewModel> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              // AppBarCustom(),
-              Profile(viewModel),
-              TapMenu(viewModel),
+                Profile(viewModel),
+                TabMenu(viewModel),
             ],
           ),
         ),
@@ -76,19 +75,25 @@ class HomeViewModel extends BaseViewModel{
   
   HomeViewModel(this.storeId);
 
+  List<GetCheckinDetailDataRecord> checkInList = [];
+  List<GetGalleryDetailDataRecord> galleryList = [];
+  List<GetStoreDetailDataImagesBanner> bannerList = [];
+
   @override
   void postInit() {
     super.postInit();
-    // getStoreDetail();
-    // getPromotionDetail();
-    // getReviewDetail();
-    // getCheckIn();
-    // getGallery();
+    getStoreDetail();
+    getPromotionDetail();
+    getReviewDetail();
+    getCheckIn();
+    getGallery();
   }
   
   void getStoreDetail() {
     catchError(() async {
       storeDetail = await di.pageRepository.getStoreDetailById(storeId);
+      bannerList.clear();
+      bannerList.addAll(storeDetail?.images?.banner ?? []);
       notifyListeners();
       
     });
@@ -109,6 +114,8 @@ class HomeViewModel extends BaseViewModel{
   void getCheckIn(){
     catchError(()async{
       checkinDetail = await di.pageRepository.getCheckinById(storeId);
+      checkInList.clear();
+      checkInList.addAll(checkinDetail?.record ?? []);
       notifyListeners();
     });
   }
@@ -116,6 +123,9 @@ class HomeViewModel extends BaseViewModel{
   void getGallery(){
     catchError(() async {
       galleryDetail = await di.pageRepository.getGalleryById(storeId);
+      galleryList.clear();
+      galleryList.addAll(galleryDetail?.record ?? []);
+      notifyListeners();
     });
   }
 
@@ -134,7 +144,11 @@ class HomeViewModel extends BaseViewModel{
     }catch(e){
       return null;
     }
+  }
 
+  reviewList(){
+    var reviewList = reviewDetail?.record;
+    return reviewList;
   }
 
   @override

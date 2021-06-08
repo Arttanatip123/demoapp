@@ -1,30 +1,22 @@
 import 'package:demoapp/check_in_screen.dart';
 import 'package:demoapp/core/base_widget.dart';
 import 'package:demoapp/home.dart';
-import 'package:demoapp/image_review_screen.dart';
+import 'package:demoapp/gallery_screen.dart';
 import 'package:demoapp/profile_detail_screen.dart';
 import 'package:demoapp/promotion_screen.dart';
 import 'package:demoapp/review_screen.dart';
 import 'package:flutter/material.dart';
-class TapMenu extends StatefulWidget {
+class TabMenu extends StatefulWidget {
   HomeViewModel viewModel;
-  TapMenu(this.viewModel);
+  TabMenu(this.viewModel);
 
   @override
-  _TapMenuState createState() => _TapMenuState(this.viewModel);
+  _TabMenuState createState() => _TabMenuState(this.viewModel);
 }
 
-class _TapMenuState extends State<TapMenu> {
-  _TapMenuState(this.viewModel);
+class _TabMenuState extends State<TabMenu> {
+  _TabMenuState(this.viewModel);
   HomeViewModel viewModel;
-
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
-
 
   @override
   Widget build(BuildContext context) {
@@ -57,11 +49,6 @@ class _TapMenuState extends State<TapMenu> {
             ),
             Container(
               height: 2375.0,
-              decoration: BoxDecoration(
-                border: Border(
-                    top: BorderSide(color: Colors.grey, width: 0.5),
-                    bottom: BorderSide(color: Colors.grey, width: 0.5)),
-              ),
               child: TabBarView(
                 children: [
                   Container(
@@ -73,7 +60,7 @@ class _TapMenuState extends State<TapMenu> {
                         //Product(viewModel),
                         Review(viewModel),
                         CheckIn(viewModel),
-                        ImageReview(viewModel),
+                        Gallery(viewModel),
                       ],
                     ),
                   ),

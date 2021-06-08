@@ -1,43 +1,13 @@
 import 'package:demoapp/core/base_widget.dart';
 import 'package:demoapp/home.dart';
-import 'package:demoapp/model/get_promotion_detail_entity.dart';
 import 'package:flutter/material.dart';
 
 class Promotion extends StatelessWidget {
   HomeViewModel viewModel;
   Promotion(this.viewModel);
-  final List promotion = [
-    {
-      "id": 1,
-      "img": "images/concert3.jpg",
-      "name": "กกกอก เฟสติวัลครั้งที่ 1",
-      "artists": "BodySlam",
-      "date": "20 ก.ค. 64",
-      "price": 250,
-    },
-    {
-      "id": 2,
-      "img": "images/concert4.jpg",
-      "name": "กกกอก เฟสติวัลครั้งที่ 2",
-      "artists": "Linking Park",
-      "date": "5 ส.ค. 64",
-      "price": 400,
-    },
-    {
-      "id": 3,
-      "img": "images/concert5.jpg",
-      "name": "กกกอก เฟสติวัลครั้งที่ 3",
-      "artists": "Justin Bieber",
-      "date": "16 ก.ย. 64",
-      "price": 350,
-    },
-  ];
-
-  List promotions = [];
   @override
   Widget build(BuildContext context) {
-    return BaseWidget(builder: (context, model, child){
-      return Container(
+    return Container(
         child: Column(
           children: [
             Container(
@@ -96,7 +66,8 @@ class Promotion extends StatelessWidget {
             ),
             GridView.builder(
                 padding: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 19.5),
-                itemCount: viewModel.promotionDetail?.record?.length,
+                //itemCount: viewModel.promotionDetail?.record?.length,
+                itemCount: viewModel.promotionDetail?.record?.length ?? 0,
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 gridDelegate:
@@ -223,7 +194,5 @@ class Promotion extends StatelessWidget {
           ],
         ),
       );
-    }, model: viewModel);
-
   }
 }

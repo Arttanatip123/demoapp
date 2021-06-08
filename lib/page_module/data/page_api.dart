@@ -41,13 +41,13 @@ class PageApi{
 
   Future<GetCheckinDetailEntity> getCheckinById(String storeId) async {
     Response response =
-    await api.get('/stores/5000090/checkins/users?limit=6&page=1', {"is_open":"true"} , BaseErrorEntity.badRequestToModelError, hasPermission: false, headers: {"Accept-Language":"th"});
+    await api.get('/stores/5000090/checkins/users?limit=8&page=1', {"is_open":"true"} , BaseErrorEntity.badRequestToModelError, hasPermission: false, headers: {"Accept-Language":"th"});
     return GetCheckinDetailEntity().fromJson(response.data);
   }
 
   Future<GetGalleryDetailEntity> getGalleryById(String storeId) async {
     Response response =
-    await api.get('/stores/5000090/gallery?limit=6&page=0', {"is_open":"true"} , BaseErrorEntity.badRequestToModelError, hasPermission: false, headers: {"Accept-Language":"th"});
+    await api.get('/stores/5000090/gallery?limit=3&page=0', {"is_open":"true"} , BaseErrorEntity.badRequestToModelError, hasPermission: false, headers: {"Accept-Language":"th"});
     return GetGalleryDetailEntity().fromJson(response.data);
   }
 

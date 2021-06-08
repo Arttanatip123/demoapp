@@ -48,7 +48,13 @@ class ProfileDetail extends StatelessWidget {
                         )),
                     new TextSpan(
                         text:
-                        ": ${viewModel.storeDetail?.venue?.address}",
+                        ": ${viewModel.storeDetail?.venue?.address} "
+                            + '${viewModel.storeDetail?.venue?.district?.name} '
+                            + '${viewModel.storeDetail?.venue?.city?.name} '
+                            + '${viewModel.storeDetail?.venue?.province?.name}'
+                            + '${viewModel.storeDetail?.venue?.country?.name}'
+                            + '${viewModel.storeDetail?.venue?.zipCode}'
+                        ,
                         style: TextStyle(
                           fontFamily: 'SukhumvitSet',
                           color: Color(0xff555555),
@@ -58,74 +64,6 @@ class ProfileDetail extends StatelessWidget {
                         )),
                   ])),
             ),
-            // ListTile(
-            //   leading: Icon(
-            //     Icons.access_time_outlined,
-            //     color: Colors.black,
-            //   ),
-            //   title: Align(
-            //     alignment: Alignment(-1.2, 0),
-            //     child: Text(
-            //       'เวลาทำการ',
-            //       style: TextStyle(
-            //         fontFamily: 'SukhumvitSet',
-            //         color: Color(0xff333333),
-            //         fontSize: 14,
-            //         fontWeight: FontWeight.w500,
-            //         fontStyle: FontStyle.normal,
-            //         letterSpacing: -0.5,
-            //       ),
-            //     ),
-            //   ),
-            //   subtitle: Align(
-            //     alignment: Alignment(-1.3, 0),
-            //     child: Text(
-            //       "${viewModel.storeDetail?.timesDisplay}",
-            //       style: TextStyle(
-            //         fontFamily: 'SukhumvitSet',
-            //         color: Color(0xff555555),
-            //         fontSize: 14,
-            //         fontWeight: FontWeight.w400,
-            //         fontStyle: FontStyle.normal,
-            //         letterSpacing: -0.5,
-            //       ),
-            //     ),
-            //   ),
-            // ),
-            // ListTile(
-            //   leading: Icon(
-            //     Icons.phone,
-            //     color: Colors.black,
-            //   ),
-            //   title: Align(
-            //     alignment: Alignment(-1.2, 0),
-            //     child: Text(
-            //       'เบอร์โทรศัพท์',
-            //       style: TextStyle(
-            //         fontFamily: 'SukhumvitSet',
-            //         color: Color(0xff333333),
-            //         fontSize: 14,
-            //         fontWeight: FontWeight.w500,
-            //         fontStyle: FontStyle.normal,
-            //         letterSpacing: -0.5,
-            //       ),
-            //     ),
-            //   ),
-            //   subtitle: Align(
-            //     alignment: Alignment(-1.2, 0),
-            //     child: Text(
-            //       viewModel.storeDetail!.contact!.phone.toString(),
-            //       style: TextStyle(
-            //         fontFamily: 'SukhumvitSet',
-            //         color: Color(0xff555555),
-            //         fontSize: 14,
-            //         fontWeight: FontWeight.w400,
-            //         fontStyle: FontStyle.normal,
-            //         letterSpacing: -0.5,
-            //       ),
-            //     ),
-            //   ),
-            // ),
             Container(
               margin: EdgeInsets.only(bottom: 8.0, top: 12.0),
               child: Row(
@@ -163,8 +101,7 @@ class ProfileDetail extends StatelessWidget {
                             letterSpacing: -0.5,
                           ),
                         ),
-                      )
-
+                      ),
                     ],
                   )
                 ],
@@ -207,8 +144,7 @@ class ProfileDetail extends StatelessWidget {
                             letterSpacing: -0.5,
                           ),
                         ),
-                      )
-
+                      ),
                     ],
                   )
                 ],

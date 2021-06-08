@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:demoapp/core/base_state_ful.dart';
 import 'package:demoapp/core/base_widget.dart';
 import 'package:demoapp/home.dart';
@@ -18,7 +19,23 @@ class _ProfileState extends BaseStateProvider<Profile,HomeViewModel> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseWidget(builder: (context, model, child){
+     return BaseWidget(builder: (context, model, child){
+    //   return CarouselSlider(
+    //             options: CarouselOptions(
+    //             height: 400.0,
+    //             viewportFraction: 1,
+    //       ),
+    //                   //items: viewModel.storeDetail?.images?.banner?.map((i) {
+    //                   items: viewModel.bannerList.map((element) {
+    //                     return Builder(
+    //                       builder: (BuildContext context) {
+    //                         final index = viewModel.bannerList.indexOf(element);
+    //                         return BannerWidget(data: element, index: index);
+    //                       },
+    //                     );
+    //                   }).toList(),
+    //
+    //   );
       return Container(
         child: Column(
           children: [
@@ -28,16 +45,33 @@ class _ProfileState extends BaseStateProvider<Profile,HomeViewModel> {
                   width: 375,
                   height: 211,
                   decoration: BoxDecoration(),
-                  child: Image.asset(
-                    'images/restaurant.jpg',
-                    fit: BoxFit.fitHeight,
-                  ),
+                  child: CarouselSlider(
+                    options: CarouselOptions(
+                      height: 400.0,
+                      viewportFraction: 1,
+                    ),
+                    items: viewModel.storeDetail?.images?.banner?.map((i) {
+                      return Builder(
+                        builder: (BuildContext context) {
+                          return Container(
+                              width: 375.0,
+                              margin: EdgeInsets.symmetric(horizontal: 0.0),
+                              decoration: BoxDecoration(
+                                  color: Colors.amber
+                              ),
+                              child: Image.network('${i.url}',fit: BoxFit.cover,),
+                          );
+
+                        },
+                      );
+                    }).toList(),
+                  )
                 ),
                 Positioned(
                   bottom: 16.0,
                   right: 16.0,
                   child: new Text(
-                    "1/10",
+                    "1/${viewModel.storeDetail?.images?.banner?.length}",
                     style: TextStyle(
                       fontFamily: 'SFUIText',
                       color: Color(0xffffffff),
@@ -101,7 +135,7 @@ class _ProfileState extends BaseStateProvider<Profile,HomeViewModel> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               new Text(
-                                "ผับ/บาร์",
+                                "${viewModel.storeDetail?.section?.text}",
                                 style: TextStyle(
                                   fontFamily: 'SukhumvitSet',
                                   color: Color(0xff6d6d6d),
@@ -178,6 +212,63 @@ class _ProfileState extends BaseStateProvider<Profile,HomeViewModel> {
         ),
       );
     }, model: viewModel);
+  }
+}
+
+class BannerWidget extends StatelessWidget{
+  final GetStoreDetailDataImagesBanner data;
+  final int index;
+
+  const BannerWidget({Key? key, required this.data, required this.index}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      // child:Stack(
+      //       children: [
+      //         Container(
+      //           width: 375,
+      //           height: 211,
+      //           decoration: BoxDecoration(),
+      //           child: CarouselSlider(
+      //             options: CarouselOptions(
+      //               height: 400.0,
+      //               viewportFraction: 1,
+      //             ),
+      //             items: data.url?.map((i) {
+      //               return Builder(
+      //                 builder: (BuildContext context) {
+      //                   return Container(
+      //                       width: 375.0,
+      //                       margin: EdgeInsets.symmetric(horizontal: 0.0),
+      //                       decoration: BoxDecoration(
+      //                           color: Colors.amber
+      //                       ),
+      //                       child: Image.network('${i.url}',fit: BoxFit.cover,),
+      //                   );
+      //
+      //                 },
+      //               );
+      //             }).toList(),
+      //           )
+      //         ),
+      //         Positioned(
+      //           bottom: 16.0,
+      //           right: 16.0,
+      //           child: new Text(
+      //             "1/${viewModel.storeDetail?.images?.banner?.length}",
+      //             style: TextStyle(
+      //               fontFamily: 'SFUIText',
+      //               color: Color(0xffffffff),
+      //               fontSize: 12,
+      //               fontWeight: FontWeight.w400,
+      //               fontStyle: FontStyle.normal,
+      //             ),
+      //           ),
+      //         ),
+      //       ],
+      //     ),
+    );
 
   }
 }
