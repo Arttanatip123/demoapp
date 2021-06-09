@@ -1,11 +1,13 @@
 import 'package:demoapp/check_in_screen.dart';
-import 'package:demoapp/core/base_widget.dart';
+import 'package:demoapp/coming_concert_screen.dart';
 import 'package:demoapp/home.dart';
 import 'package:demoapp/gallery_screen.dart';
 import 'package:demoapp/profile_detail_screen.dart';
 import 'package:demoapp/promotion_screen.dart';
 import 'package:demoapp/review_screen.dart';
 import 'package:flutter/material.dart';
+
+import 'product_screen.dart';
 class TabMenu extends StatefulWidget {
   HomeViewModel viewModel;
   TabMenu(this.viewModel);
@@ -55,9 +57,9 @@ class _TabMenuState extends State<TabMenu> {
                     child: Column(
                       children: [
                         ProfileDetail(viewModel),
-                        //ComingConcert(viewModel),
+                        ComingConcert(viewModel),
                         Promotion(viewModel),
-                        //Product(viewModel),
+                        Product(viewModel),
                         Review(viewModel),
                         CheckIn(viewModel),
                         Gallery(viewModel),

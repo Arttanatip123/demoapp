@@ -33,7 +33,7 @@ class Product extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return viewModel.productList == [] ? Container(
       child: Column(
         children: [
           Container(
@@ -159,6 +159,81 @@ class Product extends StatelessWidget {
                         )),
                   );
                 }),
+          ),
+        ],
+      ),
+    ) : Container(
+      decoration: BoxDecoration(
+        border: Border(
+          top: BorderSide(width: 3.0, color: Colors.grey.shade300)
+        )
+      ),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 16.0, top: 19.5),
+                child: new Text(
+                  "สินค้า",
+                  style: TextStyle(
+                    fontFamily: 'SukhumvitSet',
+                    color: Color(0xff333333),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    fontStyle: FontStyle.normal,
+                    letterSpacing: -0.5714285714285714,
+                  ),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(top: 15.5, right: 16.0),
+                child: GestureDetector(
+                  child: Row(
+                    children: [
+                      new Text(
+                        "ดูทั้งหมด",
+                        style: TextStyle(
+                          fontFamily: 'SukhumvitSet',
+                          color: Color(0xff08080a),
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          fontStyle: FontStyle.normal,
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                        const EdgeInsets.only(left: 10.0, top: 3.0),
+                        child: Icon(
+                          Icons.arrow_forward_ios,
+                          size: 10.0,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Center(
+            child: Container(
+              height: 100.0,
+              child: Center(
+                child: Text(
+                  'ยังไม่มีข้อมูลสินค้า',
+                  style: TextStyle(
+                    fontFamily: 'SukhumvitSet',
+                    color: Color(0xff000000),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    fontStyle: FontStyle.normal,
+                  ),
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ),
           ),
         ],
       ),
