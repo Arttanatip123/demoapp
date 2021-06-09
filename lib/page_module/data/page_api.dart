@@ -32,9 +32,9 @@ class PageApi{
   }
 
   //TODO Get review detail
-  Future<GetReviewDetailEntity> getReviewById(String storeId) async{
+  Future<GetReviewDetailEntity> getReviewById(String storeId, int limit) async{
     Response response =
-    await api.get('/stores/5000090/reviews?limit=3&page=1', {"is_open":"true"} , BaseErrorEntity.badRequestToModelError, hasPermission: false, headers: {"Accept-Language":"th"});
+    await api.get('/stores/5000090/reviews?limit=${limit.toString()}&page=1', {"is_open":"true"} , BaseErrorEntity.badRequestToModelError, hasPermission: false, headers: {"Accept-Language":"th"});
     return GetReviewDetailEntity().fromJson(response.data);
   }
 

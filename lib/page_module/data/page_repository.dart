@@ -30,8 +30,8 @@ class PageRepository extends BaseRepository{
     return result.data;
   }
 
-  Future<GetReviewDetailData?> getReviewById(String storeId) async {
-    final result = await api.getReviewById(storeId);
+  Future<GetReviewDetailData?> getReviewById(String storeId, int limit) async {
+    final result = await api.getReviewById(storeId, limit);
     reviewDetail = result;
     return result.data;
   }

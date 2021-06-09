@@ -1,7 +1,9 @@
+import 'package:demoapp/all_review_screen.dart';
 import 'package:demoapp/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:tix_navigate/tix_navigate.dart';
 
 class Review extends StatelessWidget {
   HomeViewModel viewModel;
@@ -219,7 +221,9 @@ class Review extends StatelessWidget {
           ),
           Container(
             child: FlatButton(
-              onPressed: null,
+              onPressed: (){
+                TixNavigate.instance.navigateTo(AllReview(''),data: "${viewModel.storeId}");
+              },
               child: Padding(
                 padding: const EdgeInsets.only(
                     top: 9.5, bottom: 8,

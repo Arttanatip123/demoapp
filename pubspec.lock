@@ -485,6 +485,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  tix_navigate:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: master
+      resolved-ref: "16ecda7d3ff0787fa66584189e916c7993dc67ee"
+      url: "https://github.com/AsUnDeRz/tix-navigate.git"
+    source: git
+    version: "2.0.0+1"
   typed_data:
     dependency: transitive
     description:

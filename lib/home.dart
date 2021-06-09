@@ -14,6 +14,7 @@ import 'package:demoapp/profile_screen.dart';
 import 'package:demoapp/tab_menu_screen.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:tix_navigate/tix_navigate.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -55,7 +56,9 @@ class _HomeState extends BaseStateProvider<Home, HomeViewModel> {
             ),
           ],
         ),
-        body: SingleChildScrollView(
+        body: viewModel.noInternet == true ? Container(child: Center(
+          child: Text('No Internet'),
+        ),) : SingleChildScrollView(
           child: Column(
             children: [
                 Profile(viewModel),
@@ -115,7 +118,7 @@ class HomeViewModel extends BaseViewModel{
     getCheckIn();
     getGallery();
 
-    showAlertError!(BaseError()..message='กรุณาเชื่อมต่ออินเตอร์เน็ตเพื่อเปลี่ยนแปลงหรือดูข้อมูลล่าสุด');
+    //showAlertError!(BaseError()..message='กรุณาเชื่อมต่ออินเตอร์เน็ตเพื่อเปลี่ยนแปลงหรือดูข้อมูลล่าสุด');
   }
   
   void getStoreDetail() {
@@ -149,9 +152,10 @@ class HomeViewModel extends BaseViewModel{
   }
 
   void getReviewDetail(){
+    int limit = 3;
     catchError(()async {
       setLoading(true);
-      reviewDetail = await di.pageRepository.getReviewById(storeId);
+      reviewDetail = await di.pageRepository.getReviewById(storeId, limit);
       notifyListeners();
       setLoading(false);
     });
